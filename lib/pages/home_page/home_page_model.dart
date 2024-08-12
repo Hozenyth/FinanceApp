@@ -7,8 +7,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for PaginatedDataTable widget.
-  final paginatedDataTableController =
-      FlutterFlowDataTableController<dynamic>();
+  final paginatedDataTableController = FlutterFlowDataTableController<int>();
 
   @override
   void initState(BuildContext context) {}
