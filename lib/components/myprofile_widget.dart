@@ -167,6 +167,7 @@ class _MyprofileWidgetState extends State<MyprofileWidget> {
                                           .override(
                                             fontFamily: 'Readex Pro',
                                             letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                   ),

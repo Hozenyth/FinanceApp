@@ -52,7 +52,7 @@ class _AddFinanceRegistrationWidgetState
         padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
         child: Container(
           width: 400.0,
-          height: 550.0,
+          height: 600.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
             borderRadius: const BorderRadius.only(
@@ -95,10 +95,19 @@ class _AddFinanceRegistrationWidgetState
                                     fontWeight: FontWeight.w500,
                                   ),
                         ),
-                        Icon(
-                          Icons.close_sharp,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 30.0,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.safePop();
+                          },
+                          child: Icon(
+                            Icons.close_sharp,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 30.0,
+                          ),
                         ),
                       ],
                     ),

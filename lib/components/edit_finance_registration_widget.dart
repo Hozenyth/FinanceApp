@@ -52,7 +52,7 @@ class _EditFinanceRegistrationWidgetState
         padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
         child: Container(
           width: 400.0,
-          height: 550.0,
+          height: 600.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
             borderRadius: const BorderRadius.only(
