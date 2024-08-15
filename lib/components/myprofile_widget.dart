@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -277,8 +278,14 @@ class _MyprofileWidgetState extends State<MyprofileWidget> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     FFButtonWidget(
-                                      onPressed: () {
-                                        print('Button pressed ...');
+                                      onPressed: () async {
+                                        GoRouter.of(context).prepareAuthEvent();
+                                        await authManager.signOut();
+                                        GoRouter.of(context)
+                                            .clearRedirectLocation();
+
+                                        context.goNamedAuth(
+                                            'FinanceAppAuth', context.mounted);
                                       },
                                       text: 'Sair',
                                       options: FFButtonOptions(

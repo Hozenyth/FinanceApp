@@ -19,6 +19,10 @@ class FinanceAppAuthModel extends FlutterFlowModel<FinanceAppAuthWidget> {
   TextEditingController? passwordTextController;
   late bool passwordVisibility;
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
+  // State field(s) for Name_Create widget.
+  FocusNode? nameCreateFocusNode;
+  TextEditingController? nameCreateTextController;
+  String? Function(BuildContext, String?)? nameCreateTextControllerValidator;
   // State field(s) for emailAddress_Create widget.
   FocusNode? emailAddressCreateFocusNode;
   TextEditingController? emailAddressCreateTextController;
@@ -52,6 +56,9 @@ class FinanceAppAuthModel extends FlutterFlowModel<FinanceAppAuthWidget> {
 
     passwordFocusNode?.dispose();
     passwordTextController?.dispose();
+
+    nameCreateFocusNode?.dispose();
+    nameCreateTextController?.dispose();
 
     emailAddressCreateFocusNode?.dispose();
     emailAddressCreateTextController?.dispose();
