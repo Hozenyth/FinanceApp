@@ -13,5 +13,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    paginatedDataTableController.dispose();
+  }
 }

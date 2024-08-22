@@ -14,11 +14,28 @@ class AddFinanceRegistrationModel
   TextEditingController? addDescriptionTextController;
   String? Function(BuildContext, String?)?
       addDescriptionTextControllerValidator;
+  String? _addDescriptionTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for AddValue widget.
   FocusNode? addValueFocusNode;
   TextEditingController? addValueTextController;
-  final addValueMask = MaskTextInputFormatter(mask: '##.##.####');
+  final addValueMask = MaskTextInputFormatter(mask: '###.###.##');
   String? Function(BuildContext, String?)? addValueTextControllerValidator;
+  String? _addValueTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for DropDownCategory widget.
   String? dropDownCategoryValue;
   FormFieldController<String>? dropDownCategoryValueController;
@@ -27,7 +44,11 @@ class AddFinanceRegistrationModel
   FormFieldController<String>? dropDownTypeValueController;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    addDescriptionTextControllerValidator =
+        _addDescriptionTextControllerValidator;
+    addValueTextControllerValidator = _addValueTextControllerValidator;
+  }
 
   @override
   void dispose() {

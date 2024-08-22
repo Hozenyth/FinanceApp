@@ -1,3 +1,5 @@
+import '/auth/supabase_auth/auth_util.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -131,7 +133,7 @@ class _AddFinanceRegistrationWidgetState
                     ),
                     child: Form(
                       key: _model.formKey,
-                      autovalidateMode: AutovalidateMode.disabled,
+                      autovalidateMode: AutovalidateMode.always,
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -293,7 +295,9 @@ class _AddFinanceRegistrationWidgetState
                                     fontFamily: 'Readex Pro',
                                     letterSpacing: 0.0,
                                   ),
-                              keyboardType: TextInputType.number,
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                      decimal: true),
                               validator: _model.addValueTextControllerValidator
                                   .asValidator(context),
                               inputFormatters: [_model.addValueMask],
@@ -319,8 +323,29 @@ class _AddFinanceRegistrationWidgetState
                             child: FlutterFlowDropDown<String>(
                               controller:
                                   _model.dropDownCategoryValueController ??=
-                                      FormFieldController<String>(null),
-                              options: const ['Option 1'],
+                                      FormFieldController<String>(
+                                _model.dropDownCategoryValue ??= '',
+                              ),
+                              options: List<String>.from([
+                                'Supermercado',
+                                'Academia',
+                                'Farmácia',
+                                'Delivery',
+                                'Capacitação',
+                                'Bar',
+                                'Aluguel',
+                                'Salário'
+                              ]),
+                              optionLabels: const [
+                                'Supermercado',
+                                'Academia',
+                                'Farmácia',
+                                'Delivery',
+                                'Capacitação',
+                                'Bar',
+                                'Aluguel',
+                                'Salário'
+                              ],
                               onChanged: (val) => setState(
                                   () => _model.dropDownCategoryValue = val),
                               width: 250.0,
@@ -449,8 +474,44 @@ class _AddFinanceRegistrationWidgetState
                       children: [
                         Expanded(
                           child: FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              if (_model.formKey.currentState == null ||
+                                  !_model.formKey.currentState!.validate()) {
+                                return;
+                              }
+                              if (_model.dropDownCategoryValue == null) {
+                                return;
+                              }
+                              if (_model.dropDownTypeValue == null) {
+                                return;
+                              }
+                              await FinanceRegistrationTable().insert({
+                                'description':
+                                    _model.addDescriptionTextController.text,
+                                'category': _model.dropDownCategoryValue,
+                                'type': _model.dropDownTypeValue,
+                                'value': double.tryParse(
+                                    _model.addValueTextController.text),
+                                'user_id': currentUserUid,
+                              });
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return AlertDialog(
+                                    title: const Text('Tudo certo!'),
+                                    content:
+                                        const Text('Seu registro foi adicionado'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: const Text('Ok'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                              Navigator.pop(context);
                             },
                             text: 'Salvar',
                             options: FFButtonOptions(
