@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'add_finance_registration_widget.dart' show AddFinanceRegistrationWidget;
 import 'package:flutter/material.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class AddFinanceRegistrationModel
     extends FlutterFlowModel<AddFinanceRegistrationWidget> {
@@ -17,7 +16,7 @@ class AddFinanceRegistrationModel
   String? _addDescriptionTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return 'Descrição é obrigatória';
     }
 
     return null;
@@ -26,11 +25,10 @@ class AddFinanceRegistrationModel
   // State field(s) for AddValue widget.
   FocusNode? addValueFocusNode;
   TextEditingController? addValueTextController;
-  final addValueMask = MaskTextInputFormatter(mask: '###.###.##');
   String? Function(BuildContext, String?)? addValueTextControllerValidator;
   String? _addValueTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return 'Valor é obrigatório';
     }
 
     return null;

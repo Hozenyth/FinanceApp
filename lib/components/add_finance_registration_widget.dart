@@ -53,8 +53,8 @@ class _AddFinanceRegistrationWidgetState
       child: Padding(
         padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
         child: Container(
-          width: 400.0,
-          height: 600.0,
+          width: 417.0,
+          height: 636.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
             borderRadius: const BorderRadius.only(
@@ -142,7 +142,7 @@ class _AddFinanceRegistrationWidgetState
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              'Titulo Registro',
+                              'Descrição',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -161,7 +161,7 @@ class _AddFinanceRegistrationWidgetState
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Adicionar Título do gastos',
+                                labelText: 'Adicionar Descrição do registro',
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
@@ -240,9 +240,10 @@ class _AddFinanceRegistrationWidgetState
                               controller: _model.addValueTextController,
                               focusNode: _model.addValueFocusNode,
                               autofocus: true,
+                              textCapitalization: TextCapitalization.characters,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Digite o Valor...',
+                                labelText: 'Digite o Valor',
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
@@ -300,7 +301,6 @@ class _AddFinanceRegistrationWidgetState
                                       decimal: true),
                               validator: _model.addValueTextControllerValidator
                                   .asValidator(context),
-                              inputFormatters: [_model.addValueMask],
                             ),
                           ),
                           Padding(
@@ -323,28 +323,17 @@ class _AddFinanceRegistrationWidgetState
                             child: FlutterFlowDropDown<String>(
                               controller:
                                   _model.dropDownCategoryValueController ??=
-                                      FormFieldController<String>(
-                                _model.dropDownCategoryValue ??= '',
-                              ),
-                              options: List<String>.from([
+                                      FormFieldController<String>(null),
+                              options: const [
                                 'Supermercado',
-                                'Academia',
+                                'Salário',
+                                'Venda',
+                                'Projeto',
+                                'Restaurante',
                                 'Farmácia',
-                                'Delivery',
-                                'Capacitação',
-                                'Bar',
-                                'Aluguel',
-                                'Salário'
-                              ]),
-                              optionLabels: const [
-                                'Supermercado',
-                                'Academia',
-                                'Farmácia',
-                                'Delivery',
-                                'Capacitação',
-                                'Bar',
-                                'Aluguel',
-                                'Salário'
+                                'Beleza',
+                                'Educação',
+                                'Investimento'
                               ],
                               onChanged: (val) => setState(
                                   () => _model.dropDownCategoryValue = val),
