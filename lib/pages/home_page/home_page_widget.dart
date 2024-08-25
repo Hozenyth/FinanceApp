@@ -109,7 +109,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 16.0),
                       child: Container(
-                        width: 253.0,
+                        width: 261.0,
                         height: MediaQuery.sizeOf(context).height * 1.0,
                         decoration: BoxDecoration(
                           color:
@@ -137,10 +137,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        'https://picsum.photos/seed/703/600',
+                                      child: Image.asset(
+                                        'assets/images/Logo_assessoria_de_investimento_verde_(1).png',
                                         width: 300.0,
-                                        height: 80.0,
+                                        height: 133.0,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -221,7 +221,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   onTap: () async {
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
-                                      backgroundColor: const Color(0x80000000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context).tertiary,
                                       enableDrag: false,
                                       context: context,
                                       builder: (context) {
@@ -249,8 +250,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.network(
-                                          fullScreenUsersRowList
-                                              .first.photoProfile!,
+                                          valueOrDefault<String>(
+                                            fullScreenUsersRowList
+                                                .first.photoProfile,
+                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWbNLM64Szo4YPavzsa2YBXDDCgZJ-F1wV9Q&s',
+                                          ),
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -265,6 +269,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 12.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
                                               ),
                                         ),
                                       ),
@@ -274,7 +279,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         child: Icon(
                                           Icons.logout,
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
+                                              .success,
                                           size: 24.0,
                                         ),
                                       ),
@@ -391,6 +396,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Readex Pro',
+                                                            fontSize: 16.0,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -433,7 +439,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 await showModalBottomSheet(
                                                   isScrollControlled: true,
                                                   backgroundColor:
-                                                      const Color(0x80000000),
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .tertiary,
                                                   enableDrag: false,
                                                   context: context,
                                                   builder: (context) {
@@ -457,7 +465,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 Icons.menu,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                        .tertiary,
                                                 size: 30.0,
                                               ),
                                             ),
@@ -468,188 +476,266 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 8.0, 8.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 130.0,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0x00FFFFFF),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      8.0, 12.0, 8.0, 0.0),
+                                  child: FutureBuilder<
+                                      List<ViewSaldofinalusuarioRow>>(
+                                    future: ViewSaldofinalusuarioTable()
+                                        .querySingleRow(
+                                      queryFn: (q) => q.eq(
+                                        'usuario',
+                                        currentUserUid,
+                                      ),
                                     ),
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 8.0, 0.0),
-                                            child: Container(
-                                              width: 150.0,
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  1.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                borderRadius: const BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(12.0),
-                                                  bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
-                                                ),
-                                              ),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 0.0, 8.0, 0.0),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Icon(
-                                                          Icons.monetization_on,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          size: 24.0,
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            'Saldo Total',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Text(
-                                                      'R\$2000',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            fontSize: 32.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                  ],
-                                                ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 8.0, 0.0),
-                                            child: Container(
-                                              width: 150.0,
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  1.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                borderRadius: const BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(12.0),
-                                                  bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
-                                                ),
-                                              ),
-                                              child: Padding(
+                                        );
+                                      }
+                                      List<ViewSaldofinalusuarioRow>
+                                          amountViewSaldofinalusuarioRowList =
+                                          snapshot.data!;
+
+                                      final amountViewSaldofinalusuarioRow =
+                                          amountViewSaldofinalusuarioRowList
+                                                  .isNotEmpty
+                                              ? amountViewSaldofinalusuarioRowList
+                                                  .first
+                                              : null;
+
+                                      return Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 130.0,
+                                        decoration: BoxDecoration(
+                                          color: const Color(0x00FFFFFF),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        child: SingleChildScrollView(
+                                          scrollDirection: Axis.horizontal,
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        8.0, 0.0, 8.0, 0.0),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Row(
+                                                        0.0, 0.0, 8.0, 0.0),
+                                                child: Container(
+                                                  width: 150.0,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .height *
+                                                          1.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                    borderRadius:
+                                                        const BorderRadius.only(
+                                                      bottomLeft:
+                                                          Radius.circular(12.0),
+                                                      bottomRight:
+                                                          Radius.circular(12.0),
+                                                      topLeft:
+                                                          Radius.circular(12.0),
+                                                      topRight:
+                                                          Radius.circular(12.0),
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 0.0,
+                                                                8.0, 0.0),
+                                                    child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
                                                       children: [
-                                                        Icon(
-                                                          Icons.moving,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          size: 24.0,
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Icon(
+                                                              Icons
+                                                                  .monetization_on,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .tertiary,
+                                                              size: 24.0,
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Saldo Total',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
                                                         ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            'Total Entradas',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                        Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            formatNumber(
+                                                              amountViewSaldofinalusuarioRow
+                                                                  ?.saldoFinal,
+                                                              formatType:
+                                                                  FormatType
+                                                                      .decimal,
+                                                              decimalType:
+                                                                  DecimalType
+                                                                      .commaDecimal,
+                                                              currency: 'R\$',
+                                                            ),
+                                                            'R\$0,00',
                                                           ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                fontSize: 18.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ],
                                                     ),
-                                                    Text(
-                                                      'R\$3000',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 8.0, 0.0),
+                                                child: Container(
+                                                  width: 150.0,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .height *
+                                                          1.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                    borderRadius:
+                                                        const BorderRadius.only(
+                                                      bottomLeft:
+                                                          Radius.circular(12.0),
+                                                      bottomRight:
+                                                          Radius.circular(12.0),
+                                                      topLeft:
+                                                          Radius.circular(12.0),
+                                                      topRight:
+                                                          Radius.circular(12.0),
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 0.0,
+                                                                8.0, 0.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Icon(
+                                                              Icons.moving,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondary,
+                                                              size: 24.0,
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Total Entradas',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            formatNumber(
+                                                              amountViewSaldofinalusuarioRow
+                                                                  ?.totalEntrada,
+                                                              formatType:
+                                                                  FormatType
+                                                                      .decimal,
+                                                              decimalType:
+                                                                  DecimalType
+                                                                      .commaDecimal,
+                                                              currency: 'R\$',
+                                                            ),
+                                                            'R\$0,00',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
@@ -657,94 +743,112 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .success,
-                                                                fontSize: 32.0,
+                                                                fontSize: 18.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 8.0, 0.0),
-                                            child: Container(
-                                              width: 150.0,
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  1.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                borderRadius: const BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(12.0),
-                                                  bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
-                                                ),
-                                              ),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 0.0, 8.0, 0.0),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Icon(
-                                                          Icons.credit_card,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          size: 24.0,
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            'Saldo Saídas',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                          ),
                                                         ),
                                                       ],
                                                     ),
-                                                    Text(
-                                                      'R\$1000',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 8.0, 0.0),
+                                                child: Container(
+                                                  width: 150.0,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .height *
+                                                          1.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                    borderRadius:
+                                                        const BorderRadius.only(
+                                                      bottomLeft:
+                                                          Radius.circular(12.0),
+                                                      bottomRight:
+                                                          Radius.circular(12.0),
+                                                      topLeft:
+                                                          Radius.circular(12.0),
+                                                      topRight:
+                                                          Radius.circular(12.0),
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 0.0,
+                                                                8.0, 0.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Icon(
+                                                              Icons.credit_card,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                              size: 24.0,
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Total Saídas',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            formatNumber(
+                                                              amountViewSaldofinalusuarioRow
+                                                                  ?.totalSaida,
+                                                              formatType:
+                                                                  FormatType
+                                                                      .decimal,
+                                                              decimalType:
+                                                                  DecimalType
+                                                                      .commaDecimal,
+                                                              currency: 'R\$',
+                                                            ),
+                                                            'R\$0,00',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
@@ -752,19 +856,24 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                fontSize: 32.0,
+                                                                fontSize: 18.0,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
                                                               ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                  ],
+                                                  ),
                                                 ),
                                               ),
-                                            ),
+                                            ],
                                           ),
-                                        ],
-                                      ),
-                                    ),
+                                        ),
+                                      );
+                                    },
                                   ),
                                 ),
                                 Padding(
@@ -787,7 +896,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 8.0, 0.0, 8.0),
+                                                  8.0, 12.0, 0.0, 8.0),
                                           child: Text(
                                             'Meus registros financeiros💰',
                                             style: FlutterFlowTheme.of(context)
@@ -1012,8 +1121,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       ),
                                                       Text(
                                                         valueOrDefault<String>(
-                                                          contentMainFinanceRegistrationRowList
-                                                              .first.type,
+                                                          listaRegistroItem
+                                                              .type,
                                                           'null',
                                                         ),
                                                         style:

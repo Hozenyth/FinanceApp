@@ -333,12 +333,33 @@ class _AddFinanceRegistrationWidgetState
                                 'Farmácia',
                                 'Beleza',
                                 'Educação',
-                                'Investimento'
+                                'Investimentos',
+                                'Academia',
+                                'Vestuário',
+                                'Aluguel',
+                                'Transporte',
+                                'Alimentação',
+                                'Lazer',
+                                'Viagem',
+                                'Despesas Diversas'
                               ],
                               onChanged: (val) => setState(
                                   () => _model.dropDownCategoryValue = val),
                               width: 250.0,
                               height: 55.0,
+                              maxHeight: 300.0,
+                              searchHintTextStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
+                              searchTextStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -346,6 +367,7 @@ class _AddFinanceRegistrationWidgetState
                                     letterSpacing: 0.0,
                                   ),
                               hintText: 'Selecione a Categoria',
+                              searchHintText: 'Encontre uma Categoria...',
                               icon: Icon(
                                 Icons.keyboard_arrow_down_rounded,
                                 color:
@@ -363,7 +385,7 @@ class _AddFinanceRegistrationWidgetState
                                   16.0, 4.0, 16.0, 4.0),
                               hidesUnderline: true,
                               isOverButton: true,
-                              isSearchable: false,
+                              isSearchable: true,
                               isMultiSelect: false,
                               labelText: '',
                               labelTextStyle: FlutterFlowTheme.of(context)
