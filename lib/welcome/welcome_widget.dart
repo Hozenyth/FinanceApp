@@ -72,7 +72,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
               Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 16.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 16.0, 6.0),
                   child: Text(
                     'Bem-vindo(a)!',
                     textAlign: TextAlign.center,
@@ -107,7 +107,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(40.0, 50.0, 40.0, 16.0),
+                      const EdgeInsetsDirectional.fromSTEB(40.0, 50.0, 40.0, 20.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       context.pushNamed('FinanceAppAuth');
