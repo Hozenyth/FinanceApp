@@ -31,6 +31,8 @@ class _MyprofileWidgetState extends State<MyprofileWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MyprofileModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -77,7 +79,7 @@ class _MyprofileWidgetState extends State<MyprofileWidget> {
               width: double.infinity,
               height: double.infinity,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).accent4,
+                color: FlutterFlowTheme.of(context).tertiary,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -449,8 +451,7 @@ class _MyprofileWidgetState extends State<MyprofileWidget> {
                                                 .clearRedirectLocation();
 
                                             context.goNamedAuth(
-                                                'FinanceAppAuth',
-                                                context.mounted);
+                                                'welcome', context.mounted);
                                           },
                                           text: 'Sair',
                                           options: FFButtonOptions(

@@ -48,6 +48,8 @@ class _EditFinanceRegistrationWidgetState
       currency: 'R\$',
     ));
     _model.addValueFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

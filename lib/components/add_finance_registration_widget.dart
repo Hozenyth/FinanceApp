@@ -37,6 +37,8 @@ class _AddFinanceRegistrationWidgetState
 
     _model.addValueTextController ??= TextEditingController();
     _model.addValueFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

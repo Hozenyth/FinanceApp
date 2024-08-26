@@ -113,6 +113,8 @@ class _FinanceAppAuthWidgetState extends State<FinanceAppAuthWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -175,9 +177,14 @@ class _FinanceAppAuthWidgetState extends State<FinanceAppAuthWidget>
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.network(
-                                      'https://picsum.photos/seed/570/600',
+                                    borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.circular(12.0),
+                                      bottomRight: Radius.circular(12.0),
+                                      topLeft: Radius.circular(12.0),
+                                      topRight: Radius.circular(12.0),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/images/Logo_assessoria_de_investimento_verde_(1).png',
                                       width: 413.0,
                                       height: 200.0,
                                       fit: BoxFit.cover,
