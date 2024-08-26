@@ -31,6 +31,9 @@ class AddFinanceRegistrationModel
       return 'Valor é obrigatório';
     }
 
+    if (!RegExp('^[0-9\\.]+\$').hasMatch(val)) {
+      return 'O valor deve ser informado sem o uso de vírgulas.';
+    }
     return null;
   }
 

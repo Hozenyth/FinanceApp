@@ -242,7 +242,7 @@ class _AddFinanceRegistrationWidgetState
                               controller: _model.addValueTextController,
                               focusNode: _model.addValueFocusNode,
                               autofocus: true,
-                              textCapitalization: TextCapitalization.characters,
+                              textCapitalization: TextCapitalization.none,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Digite o Valor',
@@ -298,9 +298,7 @@ class _AddFinanceRegistrationWidgetState
                                     fontFamily: 'Readex Pro',
                                     letterSpacing: 0.0,
                                   ),
-                              keyboardType:
-                                  const TextInputType.numberWithOptions(
-                                      decimal: true),
+                              keyboardType: TextInputType.number,
                               validator: _model.addValueTextControllerValidator
                                   .asValidator(context),
                             ),
