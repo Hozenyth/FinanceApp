@@ -672,7 +672,7 @@ class _FinanceAppAuthWidgetState extends State<FinanceAppAuthWidget>
                                                         borderSide: BorderSide(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primary,
+                                                              .tertiary,
                                                           width: 2.0,
                                                         ),
                                                         borderRadius:
@@ -775,7 +775,7 @@ class _FinanceAppAuthWidgetState extends State<FinanceAppAuthWidget>
                                                         borderSide: BorderSide(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primary,
+                                                              .tertiary,
                                                           width: 2.0,
                                                         ),
                                                         borderRadius:
@@ -879,7 +879,7 @@ class _FinanceAppAuthWidgetState extends State<FinanceAppAuthWidget>
                                                         borderSide: BorderSide(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primary,
+                                                              .tertiary,
                                                           width: 2.0,
                                                         ),
                                                         borderRadius:
@@ -1004,7 +1004,7 @@ class _FinanceAppAuthWidgetState extends State<FinanceAppAuthWidget>
                                                         borderSide: BorderSide(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primary,
+                                                              .tertiary,
                                                           width: 2.0,
                                                         ),
                                                         borderRadius:
