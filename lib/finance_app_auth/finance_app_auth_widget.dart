@@ -1116,11 +1116,9 @@ class _FinanceAppAuthWidgetState extends State<FinanceAppAuthWidget>
                                                         'name': _model
                                                             .nameCreateTextController
                                                             .text,
-                                                        'email': (_model
-                                                                    .emailAddressCreateFocusNode
-                                                                    ?.hasFocus ??
-                                                                false)
-                                                            .toString(),
+                                                        'email': _model
+                                                            .emailAddressCreateTextController
+                                                            .text,
                                                         'photoProfile': '',
                                                       });
                                                       await showDialog(
