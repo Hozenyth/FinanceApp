@@ -1,4 +1,4 @@
-# FinanceAppHozenyth
+# Gastax
 
 A new Flutter project.
 

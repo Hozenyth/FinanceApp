@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-    userStream = financeAppHozenythSupabaseUserStream()
+    userStream = gastaxSupabaseUserStream()
       ..listen((user) {
         _appStateNotifier.update(user);
       });

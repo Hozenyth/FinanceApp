@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class FinanceAppHozenythSupabaseUser extends BaseAuthUser {
-  FinanceAppHozenythSupabaseUser(this.user);
+class GastaxSupabaseUser extends BaseAuthUser {
+  GastaxSupabaseUser(this.user);
   User? user;
   @override
   bool get loggedIn => user != null;
@@ -57,7 +57,7 @@ class FinanceAppHozenythSupabaseUser extends BaseAuthUser {
 /// [SupaFlow.client.auth.onAuthStateChange] does not yield any values until the
 /// user is already authenticated. So we add a default null user to the stream,
 /// if we need to interact with the [currentUser] before logging in.
-Stream<BaseAuthUser> financeAppHozenythSupabaseUserStream() {
+Stream<BaseAuthUser> gastaxSupabaseUserStream() {
   final supabaseAuthStream = SupaFlow.client.auth.onAuthStateChange.debounce(
       (authState) => authState.event == AuthChangeEvent.tokenRefreshed
           ? TimerStream(authState, const Duration(seconds: 1))
@@ -67,7 +67,7 @@ Stream<BaseAuthUser> financeAppHozenythSupabaseUserStream() {
           : supabaseAuthStream)
       .map<BaseAuthUser>(
     (authState) {
-      currentUser = FinanceAppHozenythSupabaseUser(authState?.session?.user);
+      currentUser = GastaxSupabaseUser(authState?.session?.user);
       return currentUser!;
     },
   );
