@@ -1119,7 +1119,6 @@ class _FinanceAppAuthWidgetState extends State<FinanceAppAuthWidget>
                                                         'email': _model
                                                             .emailAddressCreateTextController
                                                             .text,
-                                                        'photoProfile': '',
                                                       });
                                                       await showDialog(
                                                         context: context,
